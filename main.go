@@ -77,7 +77,7 @@ func getLatest(repo *git.Repository) Version {
 			if v.Minor > latest.Minor {
 				latest = v
 			} else if v.Minor == latest.Minor {
-				if v.Point > latest.Point {
+				if v.Patch > latest.Patch {
 					latest = v
 				}
 			}
@@ -108,7 +108,7 @@ func getVersions(repo *git.Repository) []Version {
 			versions = append(versions, Version{
 				Major: atoi(versionParts[0]),
 				Minor: atoi(versionParts[1]),
-				Point: atoi(versionParts[2]),
+				Patch: atoi(versionParts[2]),
 			})
 		}
 
